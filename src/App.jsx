@@ -8,7 +8,6 @@ import { TodoBody } from "./components/Todobody.js";
 function App() {
   // toDOList는 여러 개가 들어가기 때문에 배열 state 선언
   const [todoList, setTodoList] = useState([]);
-
   return (
     <>
       <TodoHead />

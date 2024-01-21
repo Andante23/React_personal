@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./CSS/App.css";
-
 import { TodoHead } from "./components/Thead.jsx";
 import { TodoBody } from "./components/Tbody.jsx";
 
@@ -9,7 +8,14 @@ import { TodoBody } from "./components/Tbody.jsx";
  */
 function App() {
   // toDOList는 여러 개가 들어가기 때문에 배열 state 선언
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState([
+    {
+      id: 0,
+      topic: "",
+      text: "",
+      isDone: false,
+    },
+  ]);
   return (
     <>
       <TodoHead />

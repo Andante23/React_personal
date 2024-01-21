@@ -1,8 +1,8 @@
 //할일정보를 담은 카드의 isDone값이 false일  때 컴포넌트
 export function TodoCardFalse(props) {
-  // console.log("TodoCardFalse props", props);
   function deleteButton(id) {
     props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
+    alert("정상적으로 삭제되었습니다.");
   }
 
   const toggleDone = (id) => {
@@ -15,16 +15,8 @@ export function TodoCardFalse(props) {
     props.setTodoList(updatedTodoList);
   };
 
-  const todoCardStyle = {
-    margin: "20px",
-    width: "300px",
-    height: "200px",
-    borderRadius: "8px",
-    border: "2px solid black",
-  };
-
   return (
-    <figure className="todoList_card" key={props.todo.id} style={todoCardStyle}>
+    <figure className="todoList_card" key={props.todo.id}>
       <figcaption className="todoList_card_topic">
         {props.todo.topic}
       </figcaption>
@@ -57,7 +49,6 @@ export function TodoCardFalse(props) {
 
 // 할일정보를 담은 카드의 isDone값이 false일  때 컴포넌트
 export function TodoCardTrue(props) {
-  //console.log("TodoCardFalse props", props);
   function deleteButton(id) {
     props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
   }
@@ -80,7 +71,7 @@ export function TodoCardTrue(props) {
       <figcaption className="todoList_card_topicText">
         {props.todo.topicText}
       </figcaption>
-      <div className="todoList_button_option">
+      <div className="todoList_card_option">
         <button
           type="button"
           onClick={() => deleteButton(props.todo.id)}

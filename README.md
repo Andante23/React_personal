@@ -40,3 +40,13 @@
 
 5. **컴포넌트 구조는 자유롭게 구현해보세요.**
    - 반복되는 컴포넌트를 찾아서, 직접 컴포넌트를 분리해보시고, 분리한 컴포넌트를 `README`에 작성합니다.
+  
+
+**프로젝트에 대한 설명** 
+https://github.com/Andante23/React_personal/wiki/%EC%86%8C%EA%B0%9C%ED%95%A9%EB%8B%88%EB%8B%A4.#%EC%A0%9C%EB%AA%A9--%EB%8B%A8%ED%85%8C%EC%9D%98--%ED%95%A0%EC%9D%BC
+
+**프로젝트 배포 앱**
+https://react-personal-udrf.vercel.app/
+
+
+

@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Courier New", Courier, monospace;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.todoList_card_topic {
+  height: 40px;
+  font-size: 20px;
+  font-weight: 600;
+  padding-left: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todoList_card_topicText {
+  height: 120px;
+  font-size: 15px;
+  font-weight: 300;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todoList_card_option {
+  margin: 5px;
+}
+
+.todoList_card_option button {
+  margin-left: 10px;
+}
+
+/* todo_head 스타일시트 */
+.todo_head_title {
+  font-size: 22px;
+  padding: 20px;
+}
+
+/* todo_inputForm 스타일시트 */
+.todo_inputForm {
+  margin: 30px;
+}
+
+.todo_inputForm_Elements {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 500px;
+  height: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo_inputForm_input_topic,
+.todo_inputForm_input_topic_text {
+  margin-left: 10px;
+  border: 2px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo_input_submit {
+  margin-left: 10px;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+/* todoListView 스타일시트 */
+.todoListView {
+  display: flex;
+}
+
+/* todoList_start 스타일시트 */
+.todoList_start,
+.todoList_end {
+  width: 900px;
+  height: 1000px;
+  border-radius: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.todoList_card {
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todoList_start_title {
+  margin-left: 10px;
+}
+
+/* todoList_end 스타일시트 */
+.todoList_end {
+  background-color: aliceblue;
 }

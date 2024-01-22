@@ -46,22 +46,25 @@ export function TodoBody() {
       // 부모 App 컴포넌트로부터 전달받은 props이용
       // prevTodoList : 이 submitButtonForm함수에서 입력값을
       // 저장하기 이전에 있었던  값!!!
-      setTodoList((prevTodoList) => [
-        ...prevTodoList,
-        {
-          id: prevTodoList.length + 1,
-          // topic , topicText 값을  state에 저장되는 값으로 뿌려주자
-
-          topic: inputTopic,
-          topicText: inputTopicText,
-          isDone: false,
-        },
-      ]);
 
       const resultSet = window.confirm("입력하시겠습니까");
       // 입력하시겠습니까의 답이  참이면  등록됩니다.
       if (resultSet) {
         alert("등록되었습니다.");
+        setTodoList((prevTodoList) => [
+          ...prevTodoList,
+          {
+            id: prevTodoList.length + 1,
+            // topic , topicText 값을  state에 저장되는 값으로 뿌려주자
+
+            topic: inputTopic,
+            topicText: inputTopicText,
+            isDone: false,
+          },
+        ]);
+      } else {
+        alert("취소되었습니다.");
+        return;
       }
     } else {
       // 54 : 입력을 하지 않고 그러는 사람이 있다면  입력창을 채워주세요  메세지가  갑니다~~~~
@@ -114,28 +117,28 @@ export function TodoBody() {
       <div className="todoListView">
         <section className="todoList_start">
           <h1 className="todoList_start_title">시작</h1>
-          {todoList.map((tD) =>
-            tD.isDone === false ? (
+          {todoList
+            .filter((tD) => !tD.isDone)
+            .map((tD) => (
               <TodoCardFalse
                 todo={tD}
                 todoList={todoList}
                 setTodoList={setTodoList}
               />
-            ) : null
-          )}
+            ))}
         </section>
 
         <section className="todoList_end">
           <h1 className="todoList_end_title">종료</h1>
-          {todoList.map((tD) =>
-            tD.isDone === true ? (
+          {todoList
+            .filter((tD) => tD.isDone)
+            .map((tD) => (
               <TodoCardTrue
                 todo={tD}
                 todoList={todoList}
                 setTodoList={setTodoList}
               />
-            ) : null
-          )}
+            ))}
         </section>
       </div>
     </>

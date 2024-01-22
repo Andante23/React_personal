@@ -43,9 +43,9 @@ export function TodoCardFalse(props) {
       </figcaption>
       <div className="todoList_card_option">
         {/* 
-         함수명(props.todo.id)를 하면 실행되는 것입니다.
-         여러분 할일목록 추가하는  동시에 삭제됩니다.
-        */}
+           함수명(props.todo.id)를 하지 맙시다
+           생성과  동시에 투드리스트가 삭제되는 진풍경을 보실수 있습니다~~
+          */}
         <button
           type="button"
           onClick={() => deleteButton(props.todo.id)}

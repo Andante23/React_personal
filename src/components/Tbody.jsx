@@ -9,9 +9,19 @@ import { TodoCardFalse, TodoCardTrue } from "./Tcard";
  * 할일목록 몸통 컴포넌트입니다.
  * @param {부모 컴포넌트인 App으로부터 받은 속성 } props
  */
-export function TodoBody(props) {
+export function TodoBody() {
   const [inputTopic, setTopic] = useState("");
   const [inputTopicText, setTopicText] = useState("");
+
+  // toDOList는 여러 개가 들어가기 때문에 배열 state 선언
+  const [todoList, setTodoList] = useState([
+    {
+      id: 0,
+      topic: "",
+      text: "",
+      isDone: false,
+    },
+  ]);
 
   /* 사용자가 타이핑한 Topic 데이터를  받는 함수*/
   function onChangeTopic(event) {
@@ -35,7 +45,7 @@ export function TodoBody(props) {
       // 부모 App 컴포넌트로부터 전달받은 props이용
       // prevTodoList : 이 submitButtonForm함수에서 입력값을
       // 저장하기 이전에 있었던  값!!!
-      props.setTodoList((prevTodoList) => [
+      setTodoList((prevTodoList) => [
         ...prevTodoList,
         {
           id: prevTodoList.length + 1,
@@ -100,12 +110,12 @@ export function TodoBody(props) {
       <div className="todoListView">
         <section className="todoList_start">
           <h1 className="todoList_start_title">시작</h1>
-          {props.todoList.map((tD) =>
+          {todoList.map((tD) =>
             tD.isDone === false ? (
               <TodoCardFalse
                 todo={tD}
-                todoList={props.todoList}
-                setTodoList={props.setTodoList}
+                todoList={todoList}
+                setTodoList={setTodoList}
               />
             ) : null
           )}
@@ -113,12 +123,12 @@ export function TodoBody(props) {
 
         <section className="todoList_end">
           <h1 className="todoList_end_title">종료</h1>
-          {props.todoList.map((tD) =>
+          {todoList.map((tD) =>
             tD.isDone === true ? (
               <TodoCardTrue
                 todo={tD}
-                todoList={props.todoList}
-                setTodoList={props.setTodoList}
+                todoList={todoList}
+                setTodoList={setTodoList}
               />
             ) : null
           )}

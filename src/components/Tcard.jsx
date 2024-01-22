@@ -5,15 +5,18 @@ export function TodoCardFalse(props) {
     alert("정상적으로 삭제되었습니다.");
   }
 
-  const toggleDone = (id) => {
+  function toggleDone(id) {
     const updatedTodoList = props.todoList.map((item) => {
       if (item.id === id) {
+        // 상태 바꾸려는 id값이 일치하다면
+        // 상태변수 isDone을 바꾸어줍시다.
         return { ...item, isDone: !item.isDone };
       }
       return item;
     });
+    // 리액트가 알아들어야 하니까  setTodoList에서  상태 바꿔주는 거  잊지 마십쇼
     props.setTodoList(updatedTodoList);
-  };
+  }
 
   return (
     <figure className="todoList_card" key={props.todo.id}>
@@ -25,8 +28,8 @@ export function TodoCardFalse(props) {
       </figcaption>
       <div className="todoList_card_option">
         {/* 
-          1.  함수명(props.todo.id)를 하면 실행되는 것입니다.
-          2.  () => { 내용 } 는   함수가 실행하면  ~~~ 이렇게 해줘라는 것입니다.  
+         함수명(props.todo.id)를 하면 실행되는 것입니다.
+         여러분 할일목록 추가하는  동시에 삭제됩니다.
         */}
         <button
           type="button"
@@ -53,15 +56,16 @@ export function TodoCardTrue(props) {
     props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
   }
 
-  const toggleDone = (id) => {
+  function toggleDone(id) {
     const updatedTodoList = props.todoList.map((item) => {
       if (item.id === id) {
         return { ...item, isDone: !item.isDone };
       }
       return item;
     });
+    // 리액트가 알아들어야 하니까  setTodoList에서  상태 바꿔주는 거  잊지 마십쇼
     props.setTodoList(updatedTodoList);
-  };
+  }
 
   return (
     <figure className="todoList_card" key={props.todo.id}>
@@ -72,6 +76,10 @@ export function TodoCardTrue(props) {
         {props.todo.topicText}
       </figcaption>
       <div className="todoList_card_option">
+        {/* 
+         함수명(props.todo.id)를 하면 실행되는 것입니다.
+         여러분 할일목록 추가하는  동시에 삭제됩니다.
+        */}
         <button
           type="button"
           onClick={() => deleteButton(props.todo.id)}

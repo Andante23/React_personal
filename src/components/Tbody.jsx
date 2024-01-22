@@ -10,9 +10,6 @@ import { TodoCardListView } from "./TcardList";
  * @param {부모 컴포넌트인 App으로부터 받은 속성 } props
  */
 export function TodoBody() {
-  const [inputTopic, setTopic] = useState("");
-  const [inputTopicText, setTopicText] = useState("");
-
   // toDOList는 여러 개가 들어가기 때문에 배열 state 선언
   const [todoList, setTodoList] = useState([
     {
@@ -23,67 +20,9 @@ export function TodoBody() {
     },
   ]);
 
-  /* 사용자가 타이핑한 Topic 데이터를  받는 함수*/
-  function onChangeTopic(event) {
-    setTopic(event.target.value);
-    //console.log('topic',inputTopic);
-  }
-
-  /* 사용자가 타이핑한 Topic 세부내용 데이터를 받는 함수 */
-  function onChangeTopicText(event) {
-    setTopicText(event.target.value);
-    //console.log('text' , inputTopicText);
-  }
-
-  /* nav태그 바로 아래 form 부분을 제출하는 함수  */
-  function submitButtonForm(event) {
-    // 기본 기능 비활성화
-    event.preventDefault();
-
-    // 주제와 세부내용이  입력되어야지만  등록이 가능하다
-    if (inputTopic !== "" && inputTopicText !== "") {
-      // 부모 App 컴포넌트로부터 전달받은 props이용
-      // prevTodoList : 이 submitButtonForm함수에서 입력값을
-      // 저장하기 이전에 있었던  값!!!
-
-      const resultSet = window.confirm("입력하시겠습니까");
-      // 입력하시겠습니까의 답이  참이면  등록됩니다.
-      if (resultSet) {
-        alert("등록되었습니다.");
-        setTodoList((prevTodoList) => [
-          ...prevTodoList,
-          {
-            id: prevTodoList.length + 1,
-            // topic , topicText 값을  state에 저장되는 값으로 뿌려주자
-
-            topic: inputTopic,
-            topicText: inputTopicText,
-            isDone: false,
-          },
-        ]);
-      } else {
-        alert("취소되었습니다.");
-        return;
-      }
-    } else {
-      // 54 : 입력을 하지 않고 그러는 사람이 있다면  입력창을 채워주세요  메세지가  갑니다~~~~
-      alert("입력창을  채워주세요");
-    }
-
-    // 위의  if문이 종료되면 Topic과 Text를  리셋합시다.
-    setTopic("");
-    setTopicText("");
-  }
-
   return (
     <>
-      <TodoInputForm
-        inputTopic={inputTopic}
-        onChangeTopic={onChangeTopic}
-        inputTopicText={inputTopicText}
-        onChangeTopicText={onChangeTopicText}
-        submitButtonForm={submitButtonForm}
-      />
+      <TodoInputForm setTodoList={setTodoList} />
       <TodoCardListView todoList={todoList} setTodoList={setTodoList} />
     </>
   );

@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <TodoHead />
-      {/*  사용자로부터 입력폼에서  타이핑으로 입력받은 데이터인  topic 과 text를 저장하기 위해  props를 하였습니다.*/}
+
       <TodoBody />
     </>
   );

@@ -3,7 +3,8 @@
 //  13 , 14번째 줄에서 상태 관리가 되고있으므로  도와줄 useState가 필요합니다.
 import { useState } from "react";
 
-import { TodoCardFalse, TodoCardTrue } from "./Tcard";
+import { TodoCardFalse } from "./TcardFalse";
+import { TodoCardTrue } from "./TcardTrue";
 
 /**
  * 할일목록 몸통 컴포넌트입니다.
@@ -57,12 +58,10 @@ export function TodoBody() {
         },
       ]);
 
-      // 입력하시겠습니까라고 물어보는  것에 따른  로직 처리
-      const resultInput = window.confirm("입력하시겠습니까");
-      if (resultInput === true) {
-        window.alert("등록되었습니다.");
-      } else if (resultInput === false) {
-        window.alert("등록되지 않았습니다. ");
+      const resultSet = window.confirm("입력하시겠습니까");
+      // 입력하시겠습니까의 답이  참이면  등록됩니다.
+      if (resultSet) {
+        alert("등록되었습니다.");
       }
     } else {
       // 54 : 입력을 하지 않고 그러는 사람이 있다면  입력창을 채워주세요  메세지가  갑니다~~~~

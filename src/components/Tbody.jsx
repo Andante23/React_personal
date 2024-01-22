@@ -57,7 +57,13 @@ export function TodoBody() {
         },
       ]);
 
-      window.confirm("입력하시겠습니까");
+      // 입력하시겠습니까라고 물어보는  것에 따른  로직 처리
+      const resultInput = window.confirm("입력하시겠습니까");
+      if (resultInput === true) {
+        window.alert("등록되었습니다.");
+      } else if (resultInput === false) {
+        window.alert("등록되지 않았습니다. ");
+      }
     } else {
       // 54 : 입력을 하지 않고 그러는 사람이 있다면  입력창을 채워주세요  메세지가  갑니다~~~~
       alert("입력창을  채워주세요");

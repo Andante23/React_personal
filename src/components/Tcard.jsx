@@ -7,7 +7,13 @@ export function TodoCardFalse(props) {
   function deleteButton(id) {
     props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
 
-    window.confirm("삭제하시겠습니까?");
+    // 삭제하시겠습니까라고 물어보는  것에 따른  로직 처리
+    const resultDelete = window.confirm("삭제하시겠습니까?");
+    if (resultDelete === true) {
+      alert("성공적으로 삭제되었습니다.");
+    } else {
+      alert("삭제가 안되었습니다.");
+    }
   }
 
   function toggleDone(id) {
@@ -21,6 +27,14 @@ export function TodoCardFalse(props) {
     });
     // 리액트가 알아들어야 하니까  setTodoList에서  상태 바꿔주는 거  잊지 마십쇼
     props.setTodoList(updatedTodoList);
+
+    // 변경하시겠습니까라고 물어보는 것에 따른 로직 처리
+    const resultChange = window.confirm("변경하시겠습니까");
+    if (resultChange === true) {
+      alert("성공적으로 삭제되었습니다.");
+    } else if (resultChange === false) {
+      alert("삭제가 안되었습니다.");
+    }
   }
 
   return (

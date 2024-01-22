@@ -2,9 +2,8 @@
 
 //  13 , 14번째 줄에서 상태 관리가 되고있으므로  도와줄 useState가 필요합니다.
 import { useState } from "react";
-
-import { TodoCardFalse } from "./TcardFalse";
-import { TodoCardTrue } from "./TcardTrue";
+import { TodoInputForm } from "./TinputForm";
+import { TodoCardListView } from "./TcardList";
 
 /**
  * 할일목록 몸통 컴포넌트입니다.
@@ -78,69 +77,14 @@ export function TodoBody() {
 
   return (
     <>
-      <nav className="todo_input_bar">
-        <form className="todo_inputForm">
-          <input
-            className="todo_inputForm_input_topic"
-            name="topic_title"
-            type="text"
-            placeholder="주제를 입력해주세요"
-            value={inputTopic}
-            onChange={onChangeTopic}
-            min="10"
-            max="50"
-            required
-          />
-          <br></br>
-          <input
-            className="todo_inputForm_input_topic_text"
-            name="topic_text"
-            type="text"
-            placeholder="세부내용을 입력해주세요"
-            value={inputTopicText}
-            onChange={onChangeTopicText}
-            min="10"
-            max="50"
-            required
-          />
-
-          <button
-            className="todo_inputForm_submit"
-            type="submit"
-            onClick={submitButtonForm}
-          >
-            추가하기
-          </button>
-        </form>
-      </nav>
-
-      <div className="todoListView">
-        <section className="todoList_start">
-          <h1 className="todoList_start_title">시작</h1>
-          {todoList
-            .filter((tD) => !tD.isDone)
-            .map((tD) => (
-              <TodoCardFalse
-                todo={tD}
-                todoList={todoList}
-                setTodoList={setTodoList}
-              />
-            ))}
-        </section>
-
-        <section className="todoList_end">
-          <h1 className="todoList_end_title">종료</h1>
-          {todoList
-            .filter((tD) => tD.isDone)
-            .map((tD) => (
-              <TodoCardTrue
-                todo={tD}
-                todoList={todoList}
-                setTodoList={setTodoList}
-              />
-            ))}
-        </section>
-      </div>
+      <TodoInputForm
+        inputTopic={inputTopic}
+        onChangeTopic={onChangeTopic}
+        inputTopicText={inputTopicText}
+        onChangeTopicText={onChangeTopicText}
+        submitButtonForm={submitButtonForm}
+      />
+      <TodoCardListView todoList={todoList} setTodoList={setTodoList} />
     </>
   );
 }

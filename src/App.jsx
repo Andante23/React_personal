@@ -1,3 +1,4 @@
+import "./CSS/reset.css";
 import "./CSS/App.css";
 import { TodoHead } from "./components/Thead.jsx";
 import { TodoBody } from "./components/Tbody.jsx";

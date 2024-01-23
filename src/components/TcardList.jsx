@@ -11,6 +11,7 @@ export function TodoCardListView(props) {
             .filter((tD) => !tD.isDone)
             .map((tD) => (
               <TodoCardFalse
+                key={tD.id}
                 todo={tD}
                 todoList={props.todoList}
                 setTodoList={props.setTodoList}
@@ -24,6 +25,7 @@ export function TodoCardListView(props) {
             .filter((tD) => tD.isDone)
             .map((tD) => (
               <TodoCardTrue
+                key={tD.id}
                 todo={tD}
                 todoList={props.todoList}
                 setTodoList={props.setTodoList}

@@ -27,6 +27,7 @@
   background-color: #141414;
 }
 
+/* 추가하기 버튼을  눌러었을 때 보여지는 이펙트  */
 .todo_input_bar > .todo_inputForm > .todo_inputForm_submit:hover {
   cursor: pointer;
   font-weight: 800;
@@ -35,7 +36,6 @@
 }
 
 /* todoListView  todoList_start 스타일시트 */
-
 .todoListView {
   display: flex;
   align-items: center;
@@ -67,7 +67,7 @@
   padding: 10px;
 }
 
-/* todoListView의  todoList_card를 의미합니다. */
+/* todoListView의  todoList_card에 대한 스타일시트 입니다.  */
 
 .todoList_card {
   border: 1px solid #ddd;

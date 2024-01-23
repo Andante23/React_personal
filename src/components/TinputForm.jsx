@@ -28,7 +28,7 @@ export function TodoInputForm(props) {
       // prevTodoList : 이 submitButtonForm함수에서 입력값을
       // 저장하기 이전에 있었던  값!!!
 
-      // 0  1 4  4
+      // 0  1  4 4
 
       const resultSet = window.confirm("입력하시겠습니까");
       // 입력하시겠습니까의 답이  참이면  등록됩니다.
@@ -37,7 +37,7 @@ export function TodoInputForm(props) {
         props.setTodoList((prevTodoList) => [
           ...prevTodoList,
           {
-            id: Date.now(), // 수만명.... Uid
+            id: crypto.randomUUID(), //   Date.now(), // 수만명.... Uid    prevTodoList.legnth + 1
 
             // topic , topicText 값을  state에 저장되는 값으로 뿌려주자
 

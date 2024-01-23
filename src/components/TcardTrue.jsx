@@ -1,5 +1,6 @@
 // 할일정보를 담은 카드의 isDone값이 false일  때 컴포넌트
 export function TodoCardTrue(props) {
+  console.log(props);
   function deleteButton(id) {
     const resultDelete = window.confirm("삭제하시겠습니까?");
     if (resultDelete === true) {
@@ -35,7 +36,7 @@ export function TodoCardTrue(props) {
 
   return (
     // 리액트 공식문서에 따르면  key는 리액트가 어떤 항목을 변경 , 추가 , 또는  삭제할지를 알려주는 친구입니다.
-    <figure className="todoList_card" key={props.todo.id}>
+    <figure className="todoList_card">
       <figcaption className="todoList_card_topic">
         {props.todo.topic}
       </figcaption>

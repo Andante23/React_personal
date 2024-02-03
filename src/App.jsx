@@ -1,7 +1,7 @@
 import "./CSS/reset.css";
-import "./CSS/App.css";
-import { TodoHead } from "./components/Thead.jsx";
-import { TodoBody } from "./components/Tbody.jsx";
+import { TodoHead } from "./components/TodoHead.jsx";
+import { TodoContainer } from "./components/TodoContainer.jsx";
+import { GlobalStyle } from "./CSS/GlobalStyle.jsx";
 
 /*
    부모 컴포넌트 App 
@@ -9,9 +9,11 @@ import { TodoBody } from "./components/Tbody.jsx";
 function App() {
   return (
     <>
-      <TodoHead />
+      <GlobalStyle>
+        <TodoHead />
 
-      <TodoBody />
+        <TodoContainer />
+      </GlobalStyle>
     </>
   );
 }

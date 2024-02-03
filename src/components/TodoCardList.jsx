@@ -1,5 +1,5 @@
-import { TodoCardFalse } from "./TcardFalse";
-import { TodoCardTrue } from "./TcardTrue";
+import { TodoCardFalse } from "./TodoCardFalse";
+import { TodoCardTrue } from "./TodoCardTrue";
 
 export function TodoCardListView(props) {
   return (

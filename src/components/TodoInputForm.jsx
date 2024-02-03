@@ -13,9 +13,11 @@ export function TodoInputForm(props) {
   }
 
   function submitButtonForm(event) {
+    // submit 버튼의 기본 기능 방지
     event.preventDefault();
 
-    if (inputTopic !== "" && inputTopicText !== "") {
+    // 공백("") , 스페이스로 만들음("   ") 로 받은 입력값이 들어왔을 때 / 안들어왔을 때  대처 로직
+    if (inputTopic.trim() !== "" && inputTopicText.trim() !== "") {
       const resultSet = window.confirm("입력하시겠습니까");
 
       if (resultSet) {
@@ -38,6 +40,7 @@ export function TodoInputForm(props) {
       alert("입력창을  채워주세요");
     }
 
+    // 폼 입력받는 부분을 리셋
     setTopic("");
     setTopicText("");
   }
@@ -54,7 +57,6 @@ export function TodoInputForm(props) {
           min="10"
           max="50"
           required
-          pattern="[0-9]+"
         />
         <br></br>
         <StTextArea

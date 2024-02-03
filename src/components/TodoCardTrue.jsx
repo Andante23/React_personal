@@ -36,7 +36,7 @@ export function TodoCardTrue(props) {
       <StTrueLabel htmlFor="topic">주제</StTrueLabel> <br />
       <StTrueTodoData>{props.todo.topic}</StTrueTodoData>
       <StTrueLabel htmlFor="topicText">세부내용</StTrueLabel> <br />
-      <StTrueTodoData>{props.todo.topicText}</StTrueTodoData>
+      <StTrueTodoData>{props.todo.text}</StTrueTodoData>
       <StTrueTodoOption>
         <StTrueButtonDelete
           type="button"

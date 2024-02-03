@@ -6,8 +6,8 @@ export function TodoContainer() {
   const [todoList, setTodoList] = useState([
     {
       id: 0,
-      topic: "",
-      text: "",
+      topic: "하하하",
+      text: "라라라",
       isDone: false,
     },
   ]);

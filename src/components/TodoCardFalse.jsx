@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
+// 완료하기전 할일목록카드를 모아놓은  TodoCardFalse
 export function TodoCardFalse(props) {
-  function deleteButton(id) {
+  console.log(props.todoList);
+
+  function deleteData(id) {
     const resultDelete = window.confirm("삭제하시겠습니까?");
-    if (resultDelete === true) {
+    if (resultDelete) {
       alert("성공적으로 삭제되었습니다.");
+      /*
+        1. 삭제하려는 id값과  todoList 데이터id들을 비교해서
+        2. 일치하지 않은 것만 존재하는 배열을 만든다. 
+        3. 그리고 반영해야하므로  setTodoList에 한다. 
+      */
       props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
     } else {
       alert("삭제가 취소되었습니다.");
@@ -13,7 +21,13 @@ export function TodoCardFalse(props) {
   }
 
   function toggleDone(id) {
+    // 완료된 할일목록를 저장하는 변수  updatedTodoList
     const updatedTodoList = props.todoList.map((item) => {
+      /*
+        1.  종료로 넘길 id값과  todoList들의 id값이 동일하다면 
+        2.  시작과 종료를 판가름하는 isDone 값을 변경
+        3.  반대로 없다면 item을 반환한다. 
+        */
       if (item.id === id) {
         return { ...item, isDone: !item.isDone };
       }
@@ -23,7 +37,7 @@ export function TodoCardFalse(props) {
     const resultChange = window.confirm("변경하시겠습니까");
     if (resultChange === true) {
       alert("성공적으로 변경되었습니다.");
-
+      // 변경하시겠습니까에 네로 답했으므로 반영하여 상태 변경
       props.setTodoList(updatedTodoList);
     } else {
       alert("취소 되었습니다.");
@@ -35,11 +49,11 @@ export function TodoCardFalse(props) {
       <StFalseLabel htmlFor="topic">주제</StFalseLabel> <br />
       <StFalseTodoData>{props.todo.topic}</StFalseTodoData>
       <StFalseLabel htmlFor="topicText">세부내용</StFalseLabel> <br />
-      <StFalseTodoData>{props.todo.topicText}</StFalseTodoData>
+      <StFalseTodoData>{props.todo.text}</StFalseTodoData>
       <StFalseTodoOption>
         <StFalseButtonDelete
           type="button"
-          onClick={() => deleteButton(props.todo.id)}
+          onClick={() => deleteData(props.todo.id)}
         >
           삭제
         </StFalseButtonDelete>

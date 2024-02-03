@@ -4,8 +4,8 @@ export function TodoHead() {
 
   return (
     <>
-      <StHeader className="todo_head">
-        <StTitle className="todo_head_title">{topHeadTitle}</StTitle>
+      <StHeader>
+        <StTitle>{topHeadTitle}</StTitle>
       </StHeader>
     </>
   );

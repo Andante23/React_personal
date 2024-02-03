@@ -5,9 +5,14 @@ import { TodoCardTrue } from "./TodoCardTrue";
 export function TodoCardListView(props) {
   return (
     <>
+      {/* 
+            todoList 데이터 배열에서 필더링을 하여  tD.isDone만 담은 배열을 나타내는 로직
+           */}
+
       <StCardListView>
         <StCardView>
           <StCardTitle>시작</StCardTitle>
+
           {props.todoList
             .filter((tD) => !tD.isDone)
             .map((tD) => (

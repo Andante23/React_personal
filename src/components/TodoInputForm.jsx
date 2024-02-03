@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
+import { v4 as uuidv4 } from "uuid";
+
 export function TodoInputForm(props) {
   const [inputTopic, setTopic] = useState("");
   const [inputTopicText, setTopicText] = useState("");
@@ -25,7 +27,8 @@ export function TodoInputForm(props) {
         props.setTodoList((prevTodoList) => [
           ...prevTodoList,
           {
-            id: crypto.randomUUID(),
+            // 독립적인 id값을 부여하기 위해서 uuid 라이브러리를 이용합니다.!!!
+            id: uuidv4(),
 
             topic: inputTopic,
             topicText: inputTopicText,

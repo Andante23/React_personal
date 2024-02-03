@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { styled } from "styled-components";
 export function TodoInputForm(props) {
   const [inputTopic, setTopic] = useState("");
   const [inputTopicText, setTopicText] = useState("");
@@ -43,10 +43,9 @@ export function TodoInputForm(props) {
   }
 
   return (
-    <nav className="todo_input_bar">
-      <form className="todo_inputForm">
-        <input
-          className="todo_inputForm_input_topic"
+    <StNav>
+      <StForm>
+        <StInput
           name="topic_title"
           type="text"
           placeholder="주제를 입력해주세요"
@@ -58,8 +57,7 @@ export function TodoInputForm(props) {
           pattern="[0-9]+"
         />
         <br></br>
-        <input
-          className="todo_inputForm_input_topic_text"
+        <StTextArea
           name="topic_text"
           type="text"
           placeholder="세부내용을 입력해주세요"
@@ -70,14 +68,52 @@ export function TodoInputForm(props) {
           required
         />
 
-        <button
-          className="todo_inputForm_submit"
-          type="submit"
-          onClick={submitButtonForm}
-        >
+        <StButton type="submit" onClick={submitButtonForm}>
           추가하기
-        </button>
-      </form>
-    </nav>
+        </StButton>
+      </StForm>
+    </StNav>
   );
 }
+
+const StNav = styled.nav`
+  margin: 1.875rem;
+`;
+
+const StForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 1rem;
+`;
+
+const StInput = styled.input`
+  width: 400px;
+  border-radius: 5px;
+  padding: 10px;
+  border-color: none;
+`;
+
+const StTextArea = styled.textarea`
+  margin: 0.625rem;
+  width: 400px;
+  border-radius: 4px;
+  height: 300px;
+`;
+
+const StButton = styled.button`
+  margin-left: 320px;
+  margin-top: 20px;
+  padding: 8px;
+  border-radius: 10px;
+  border-color: #034aee;
+  color: #ffffff;
+  background-color: #034aee;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0535a5;
+    border-color: #0535a5;
+  }
+`;

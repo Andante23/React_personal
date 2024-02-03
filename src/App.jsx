@@ -1,4 +1,3 @@
-import "./CSS/reset.css";
 import { TodoHead } from "./components/TodoHead.jsx";
 import { TodoContainer } from "./components/TodoContainer.jsx";
 import { GlobalStyle } from "./CSS/GlobalStyle.jsx";
@@ -9,11 +8,9 @@ import { GlobalStyle } from "./CSS/GlobalStyle.jsx";
 function App() {
   return (
     <>
-      <GlobalStyle>
-        <TodoHead />
-
-        <TodoContainer />
-      </GlobalStyle>
+      <GlobalStyle />
+      <TodoHead />
+      <TodoContainer />
     </>
   );
 }

@@ -1,12 +1,13 @@
+import styled from "styled-components";
 import { TodoCardFalse } from "./TodoCardFalse";
 import { TodoCardTrue } from "./TodoCardTrue";
 
 export function TodoCardListView(props) {
   return (
     <>
-      <div className="todoListView">
-        <section className="todoList_start">
-          <h1 className="todoList_start_title">시작</h1>
+      <StCardListView>
+        <StCardView>
+          <StCardTitle>시작</StCardTitle>
           {props.todoList
             .filter((tD) => !tD.isDone)
             .map((tD) => (
@@ -17,10 +18,10 @@ export function TodoCardListView(props) {
                 setTodoList={props.setTodoList}
               />
             ))}
-        </section>
+        </StCardView>
 
-        <section className="todoList_end">
-          <h1 className="todoList_end_title">종료</h1>
+        <StCardView>
+          <StCardTitle>종료</StCardTitle>
           {props.todoList
             .filter((tD) => tD.isDone)
             .map((tD) => (
@@ -31,8 +32,28 @@ export function TodoCardListView(props) {
                 setTodoList={props.setTodoList}
               />
             ))}
-        </section>
-      </div>
+        </StCardView>
+      </StCardListView>
     </>
   );
 }
+
+const StCardListView = styled.div`
+  height: 1400px;
+  margin: 40px;
+  display: flex;
+`;
+
+const StCardView = styled.section`
+  background-color: #fbf9f9ed;
+  margin: 10px;
+  width: 700px;
+  padding: 90px;
+  border-radius: 10px;
+`;
+
+const StCardTitle = styled.h1`
+  font-size: 24px;
+  font-weight: 600;
+  color: black;
+`;

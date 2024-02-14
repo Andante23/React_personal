@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 // 완료하기전 할일목록카드를 모아놓은  TodoCardFalse
 export function TodoCardFalse(props) {
-  console.log(props.todoList);
-
   function deleteData(id) {
     const resultDelete = window.confirm("삭제하시겠습니까?");
     if (resultDelete) {

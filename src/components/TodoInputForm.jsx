@@ -31,7 +31,7 @@ export function TodoInputForm(props) {
             id: uuidv4(),
 
             topic: inputTopic,
-            topicText: inputTopicText,
+            text: inputTopicText,
             isDone: false,
           },
         ]);

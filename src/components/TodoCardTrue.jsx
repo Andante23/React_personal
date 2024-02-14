@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 
 export function TodoCardTrue(props) {
+  console.log(props);
+
   function deleteButton(id) {
     const resultDelete = window.confirm("삭제하시겠습니까?");
     if (resultDelete === true) {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TodoInputForm } from "./TodoInputForm";
-import { TodoCardListView } from "./TodoCardList";
+import { TodoCardList } from "./TodoCardList";
 
 export function TodoContainer() {
   const [todoList, setTodoList] = useState([
@@ -15,7 +15,7 @@ export function TodoContainer() {
   return (
     <>
       <TodoInputForm setTodoList={setTodoList} />
-      <TodoCardListView todoList={todoList} setTodoList={setTodoList} />
+      <TodoCardList todoList={todoList} setTodoList={setTodoList} />
     </>
   );
 }

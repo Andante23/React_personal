@@ -14,7 +14,7 @@ export function TodoInputForm(props) {
     setTopicText(event.target.value);
   }
 
-  function submitButtonForm(event) {
+  function submitButtonFormHandler(event) {
     // submit 버튼의 기본 기능 방지
     event.preventDefault();
 
@@ -73,7 +73,7 @@ export function TodoInputForm(props) {
           required
         />
 
-        <StButton type="submit" onClick={submitButtonForm}>
+        <StButton type="submit" onClick={submitButtonFormHandler}>
           추가하기
         </StButton>
       </StForm>
@@ -82,43 +82,39 @@ export function TodoInputForm(props) {
 }
 
 const StNav = styled.nav`
-  margin: 1.875rem;
+  margin: auto;
 `;
 
 const StForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: aliceblue;
-  padding: 1rem;
+  justify-content: center;
+  padding: 60px;
 `;
 
 const StInput = styled.input`
-  width: 400px;
-  border-radius: 5px;
-  padding: 10px;
-  border-color: none;
+  width: 25rem;
+  height: 2.5rem;
 `;
 
 const StTextArea = styled.textarea`
-  margin: 0.625rem;
-  width: 400px;
-  border-radius: 4px;
-  height: 300px;
+  width: 25rem;
+  height: 25rem;
 `;
 
 const StButton = styled.button`
-  margin-left: 320px;
-  margin-top: 20px;
-  padding: 8px;
-  border-radius: 10px;
-  border-color: #034aee;
-  color: #ffffff;
-  background-color: #034aee;
-  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+  height: 40px;
 
+  background-color: #0077c2;
+  color: #ffffff;
+  border-color: #0077c2;
   &:hover {
-    background-color: #0535a5;
-    border-color: #0535a5;
+    background-color: #00619a;
+    color: #ffffff;
+    border-color: #00619a;
+    cursor: pointer;
   }
 `;

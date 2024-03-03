@@ -12,12 +12,11 @@ export function TodoHead() {
 }
 
 const StHeader = styled.header`
-  margin: 1.25rem;
+  text-align: center;
 `;
 
 const StTitle = styled.h1`
-  text-align: center;
-  font-size: 32px;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: 900;
+  margin: 10px;
+  font-size: 26px;
+  font-weight: 600;
 `;

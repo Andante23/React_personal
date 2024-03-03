@@ -1,10 +1,15 @@
 import { styled } from "styled-components";
 
 export function TodoCardTrue(props) {
-  function deleteButton(id) {
+  function deleteTodoHandler(id) {
     const resultDelete = window.confirm("삭제하시겠습니까?");
-    if (resultDelete === true) {
+    if (resultDelete) {
       alert("성공적으로 삭제되었습니다.");
+      /*
+        1. 삭제하려는 id값과  todoList 데이터id들을 비교해서
+        2. 일치하지 않은 것만 존재하는 배열을 만든다. 
+        3. 그리고 반영해야하므로  setTodoList에 한다. 
+      */
       props.setTodoList(props.todoList.filter((todo) => todo.id !== id));
     } else {
       alert("삭제가 취소되었습니다.");
@@ -12,18 +17,24 @@ export function TodoCardTrue(props) {
     }
   }
 
-  function toggleDone(id) {
-    const updatedTodoList = props.todoList.map((item) => {
-      if (item.id === id) {
-        return { ...item, isDone: !item.isDone };
+  function changeStateTodoHandler(id) {
+    // 완료된 할일목록를 저장하는 변수  updatedTodoList
+    const updatedTodoList = props.todoList.map((todo) => {
+      /*
+        1.  종료로 넘길 id값과  todoList들의 id값이 동일하다면 
+        2.  시작과 종료를 판가름하는 isDone 값을 변경
+        3.  반대로 없다면 todo을 반환한다. 
+        */
+      if (todo.id === id) {
+        return { ...todo, isDone: !todo.isDone };
       }
-      return item;
+      return todo;
     });
 
     const resultChange = window.confirm("변경하시겠습니까");
     if (resultChange === true) {
       alert("성공적으로 변경되었습니다.");
-
+      // 변경하시겠습니까에 네로 답했으므로 반영하여 상태 변경
       props.setTodoList(updatedTodoList);
     } else {
       alert("취소 되었습니다.");
@@ -33,20 +44,22 @@ export function TodoCardTrue(props) {
 
   return (
     <StTrueTodoItem>
-      <StTrueLabel htmlFor="topic">주제</StTrueLabel> <br />
-      <StTrueTodoData>{props.todo.topic}</StTrueTodoData>
-      <StTrueLabel htmlFor="topicText">세부내용</StTrueLabel> <br />
-      <StTrueTodoData>{props.todo.text}</StTrueTodoData>
+      <StTrueTodoBody>
+        <StTrueLabel htmlFor="topic">주제</StTrueLabel> <br />
+        <StTrueTodoText>{props.todo.topic}</StTrueTodoText>
+        <StTrueLabel htmlFor="topicText">세부내용</StTrueLabel> <br />
+        <StTrueTodoText>{props.todo.text}</StTrueTodoText>
+      </StTrueTodoBody>
       <StTrueTodoOption>
         <StTrueButtonDelete
           type="button"
-          onClick={() => deleteButton(props.todo.id)}
+          onClick={() => deleteTodoHandler(props.todo.id)}
         >
           삭제
         </StTrueButtonDelete>
         <StFalseButtonCancel
           type="button"
-          onClick={() => toggleDone(props.todo.id)}
+          onClick={() => changeStateTodoHandler(props.todo.id)}
         >
           취소
         </StFalseButtonCancel>
@@ -55,58 +68,60 @@ export function TodoCardTrue(props) {
   );
 }
 
-const StTrueTodoItem = styled.figure`
-  margin: 10px;
-  background-color: lightblue;
-  border-radius: 10px;
+const StTrueTodoBody = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
-const StTrueTodoData = styled.figcaption`
-  margin: 20px;
-  padding: 10px;
-  font-weight: 600;
-  background-color: aliceblue;
-  border-radius: 10px;
+const StTrueTodoItem = styled.figure`
+  border-radius: 4px;
+  border-color: #5c5c5c;
+  box-shadow: 2px 2px 2px 2px #5c5c5c;
+  margin: 2.5rem;
+  height: 12.5rem;
+  padding: 0.625rem;
+`;
+
+const StTrueTodoText = styled.figcaption`
+  padding: 0.625rem;
 `;
 
 const StTrueLabel = styled.label`
-  margin: auto;
-  color: black;
+  padding: 0.625rem;
+  color: #333333;
   font-weight: bolder;
 `;
 
 const StTrueTodoOption = styled.div`
-  padding-left: 400px;
+  position: absolute;
+  margin-left: 8rem;
 `;
 
 const StTrueButtonDelete = styled.button`
-  margin: 10px;
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
+  margin-left: 2.5rem;
 
-  border-color: #ee030b;
+  background-color: #9b111e;
   color: #ffffff;
-  background-color: #ee030b;
+  border-color: #9b111e;
 
   &:hover {
-    background-color: #c2060c;
-    border-color: #c2060c;
+    background-color: #810512;
+    color: #ffffff;
+    border-color: #810512;
+    cursor: pointer;
   }
 `;
 
 const StFalseButtonCancel = styled.button`
-  border-radius: 10px;
-  padding: 10px;
-  cursor: pointer;
-
-  border-color: #131314;
+  margin-left: 2.5rem;
+  background-color: #070707;
   color: #ffffff;
-  background-color: #131314;
-  cursor: pointer;
+  border-color: #080808;
 
   &:hover {
-    background-color: #1e1e1f;
-    border-color: #1e1e1f;
+    background-color: #343738;
+    color: #ffffff;
+    border-color: #343738;
+    cursor: pointer;
   }
 `;

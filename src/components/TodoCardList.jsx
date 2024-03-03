@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { TodoCardFalse } from "./TodoCardFalse";
 import { TodoCardTrue } from "./TodoCardTrue";
 
-export function TodoCardListView(props) {
+export function TodoCardList(props) {
   return (
     <>
       {/* 
-            todoList 데이터 배열에서 필더링을 하여  tD.isDone만 담은 배열을 나타내는 로직
+            todoList 데이터 배열에서 필더링을 하여  todo.isDone만 담은 배열을 나타내는 로직
            */}
 
       <StCardListView>
@@ -14,11 +14,11 @@ export function TodoCardListView(props) {
           <StCardTitle>시작</StCardTitle>
 
           {props.todoList
-            .filter((tD) => !tD.isDone)
-            .map((tD) => (
+            .filter((todo) => !todo.isDone)
+            .map((todo) => (
               <TodoCardFalse
-                key={tD.id}
-                todo={tD}
+                key={todo.id}
+                todo={todo}
                 todoList={props.todoList}
                 setTodoList={props.setTodoList}
               />
@@ -28,11 +28,11 @@ export function TodoCardListView(props) {
         <StCardView>
           <StCardTitle>종료</StCardTitle>
           {props.todoList
-            .filter((tD) => tD.isDone)
-            .map((tD) => (
+            .filter((todo) => todo.isDone)
+            .map((todo) => (
               <TodoCardTrue
-                key={tD.id}
-                todo={tD}
+                key={todo.id}
+                todo={todo}
                 todoList={props.todoList}
                 setTodoList={props.setTodoList}
               />
@@ -44,21 +44,19 @@ export function TodoCardListView(props) {
 }
 
 const StCardListView = styled.div`
-  height: 1400px;
-  margin: 40px;
   display: flex;
+  justify-content: space-around;
 `;
 
 const StCardView = styled.section`
-  background-color: #fbf9f9ed;
   margin: 10px;
-  width: 700px;
-  padding: 90px;
-  border-radius: 10px;
+  width: 400px;
+  height: 400px;
 `;
 
 const StCardTitle = styled.h1`
-  font-size: 24px;
-  font-weight: 600;
-  color: black;
+  margin: 10px;
+  color: #333333;
+  font-weight: bolder;
+  font-size: 40px;
 `;

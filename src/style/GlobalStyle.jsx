@@ -1,10 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+
 
 html,
 body,
@@ -93,8 +90,9 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  background-color: #FFFFFF;
 }
-/* HTML5 display-role reset for older browsers */
+
 article,
 aside,
 details,
@@ -129,6 +127,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  box-sizing: border-box;
 }
     
 

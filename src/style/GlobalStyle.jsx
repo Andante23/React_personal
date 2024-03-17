@@ -130,7 +130,11 @@ table {
   box-sizing: border-box;
 }
     
-
+body {
+  max-width: 1200px; /* 최대 넓이 설정 */
+  min-width: 300px; /* 최소 넓이 설정 */
+  margin: 0 auto; /* 전체 가운데 정렬 */
+}
 
 
 `;
